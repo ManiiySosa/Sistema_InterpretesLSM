@@ -1,0 +1,53 @@
+body{
+    padding: 0px;
+    margin:  0px;
+    background-image: url(../img/paven.png);
+}
+
+#container-forms{
+    display: flex;
+    flex-flow: row wrap;
+    flex-grow: 1;
+    align-items: center;
+    flex-basis: calc(100%/2);
+    justify-content: space-between;
+    background: #EDF8F7;
+    padding: 15px;
+    margin: 15px auto;
+    margin-top: 20px;
+    width: 1250px;
+    min-height: 550px;
+    text-transform: uppercase;
+   
+}
+
+#container-forms h1{
+    display: block;
+    width: 100%;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-size: 28px;
+    background: #25A282;
+    margin-bottom: 10px;
+}
+
+.container-form{
+    border-radius: 2px;
+    background:  #5AC0A8;
+    padding: 12px;
+}
+
+#container-login{
+    flex-basis: 40%;
+    margin-left: 20px;
+}
+
+#container-register{
+    flex-basis: 50%;
+    margin-right: 20px;
+}
+
+#label-interprete{
+    margin-right: 30px;
+}

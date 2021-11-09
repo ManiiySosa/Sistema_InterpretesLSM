@@ -1,0 +1,138 @@
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+/*Estilos pagina principal*/
+#container {
+  background-image: url(../img/paven.png);
+  min-height: 600px;
+}
+
+#header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  background: #333;
+  border-bottom: 2px solid orangered;
+}
+
+#logo {
+  display:flex;
+  flex-basis: 60%;
+  flex-direction: row;
+  flex-grow: 1;
+  padding: 10px;
+  align-items: center;
+  margin-left: 2em;
+}
+
+#encabezado {
+  display: block;
+  font-size: 30px;
+  font-weight: 600;
+  font-style: normal;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 1px #ccc;
+  color: orangered;
+  margin-left: 18px;
+}
+
+#logo img {
+  width: 100px;
+  height: 66px;
+}
+
+#menu{
+    flex-basis: 35%;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    padding-right: 20px;
+    margin-right: 2em;
+}
+
+#menu >ul{
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+}
+
+#menu a{
+    color: orangered;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 6px;
+    transition: all 300ms;
+}
+
+#menu a:hover{
+    background: orangered;
+    color: white;
+}
+
+/*Estilos contenido central*/
+#content{
+    display: flex;
+    flex-grow: 1;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#content h1{
+  display: block;
+  text-align: center;
+  padding-top: 10px;
+  font-size: 30px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid lightslategray;
+}
+
+#sidebar{
+  display: flex;
+  flex-flow: column wrap;
+  flex-basis: 22%;
+  flex-grow: 1;
+  min-height: 500px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-right: 5px;
+  padding: 10px;
+  background: #b5e3df;
+  box-shadow: 1px 1px 1px #ccc;
+}
+
+#sidebar h1{
+  background-color: #25A282;
+}
+
+#central{
+  flex-basis: 70%;
+  flex-grow: 1;
+  margin-left: 10px;
+  margin-top: 8px;
+  margin-right: 10px;
+  border-left: 1px solid #ccc;
+  box-shadow: -6px 2px 6px #dddd;
+  background: #b5e3df;
+}
+
+#footer{
+  display: flex;
+  width: 100%;
+  height: 60px;
+  background: #333;
+  padding: 10px;
+  color: orangered;
+  
+}
+
+
