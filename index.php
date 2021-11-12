@@ -1,168 +1,30 @@
-<!DOCTYPE html>
-<html lang="es">
+<?php
+//controlador frontal
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sistema Interpretes de LSM</title>
-  <!-- iconos bootstrap -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css" />
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
-    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
-  <!-- estilos generales -->
-  <link rel="stylesheet" href="assets/css/styles.css" />
-</head>
+require_once 'views/layout/header.php';
+require_once 'views/layout/sidebar.php';
+require_once 'autoload.php';
 
-<body>
-  <!-- Cabecera -->
-  <div id="container">
-    <header id="header">
-      <div id="logo">
-        <img src="assets/img/Hola_LSM.png" alt="logotipo" />
-        <h1 id="encabezado">servicios interpretes LSM</h1>
-      </div>
-      <!-- Menu -->
-      <nav id="menu">
-        <ul>
-          <li><a href="#">INICIO</a></li>
-          <li>
-            <a href="#"><img src="#" alt="imagen usuario" /></a>
-          </li>
-          <li><a href="#">CERRAR SESION</a></li>
-        </ul>
-      </nav>
-    </header>
-    <!-- Fin Cabecera -->
+if(isset($_GET['controller'])){
+    $nombre_controlador = $_GET['controller'].'Controller';
+}else{
+    echo 'La pagina que buscas no existe';
+    exit();
+}
 
-    <!--Contenido central-->
-    <div id="content">
-      <!-- Barra Lateral -->
-      <aside id="sidebar">
-        <h1><i class="bi bi-gear-wide icon-sidebar"></i> Servicios</h1>
-        <div id="accordion">
-          <div class="card">
-            <div class="card-header" id="headingOne">
-              <h3 class="mb-0">
-                <button class="btn btn-secondary dropdown-toggle" data-toggle="collapse" data-target="#collapseOne"
-                  aria-expanded="false" aria-controls="collapseOne">
-                  Buscar Interprete
-                </button>
-              </h3>
-            </div>
-            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-              <div class="card-body">
-                <h4>Filtros</h4>
-                <form action="#">
-                  <label for="">Años de experiencia</label>
-                  <input type="number">
-                  <label for="">Area especialidad</label>
-                  <input type="text">
-                </form>
-              </div>
-            </div>
-          </div>
+if(class_exists($nombre_controlador)){
+    $controlador = new $nombre_controlador();
+        if(isset($_GET['action']) && method_exists($controlador, $_GET['action'])){
+            $action = $_GET['action'];
+            $controlador->$action();
+        }else{
+            echo 'La pagina que buscas no existe';
+        }
 
-          <div class="card">
-            <div class="card-header" id="headingTwo">
-              <h3 class="mb-0">
-                <button class="btn btn-secondary dropdown-toggle" data-toggle="collapse" data-target="#collapseTwo"
-                  aria-expanded="false" aria-controls="collapseTwo">
-                  Registrar Servicio
-                </button>
-              </h3>
-            </div>
-            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-              <div class="card-body">
-                <a href="#" class="btn btn-primary">Crear Servicio</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <a href="#">Gestionar Servicio</a>
-        <a href="#">Valoraciones</a>
-      </aside>
-      <!-- Fin Barra Lateral -->
-      <!-- seccion central -->
-      <section id="central">
-        <h1>Interpretes destacados</h1>
-          <article class="service">
-            <div class="service-info">
-              <p>
-                <label for="">Nombre:</label><span></span>
-              </p>
-              <p>
-                <label for="">Area Especialidad:</label><span></span>
-              </p>
-             <p>
-                <label for="">Años experiencia en LSM:</label><span></span>
-             </p>
-              <p>
-                <label for="">Correo electronico:</label><span></span>
-              </p>
-             <p>
-                <label for="">Telefono:</label><span></span>
-             </p>
-              <p>
-                <label for="">Valoracion </label><span></span>
-              </p>
-              <a href="#">Calificar Interprete</a>
+}else{
+    echo 'La pagina que buscas no existe';
+}
 
-            </div>
-            <div class="video-interprete">
-              <video src="assets/video/hola-man.mp4" id="video-interprete" controls muted loop></video>
-            </div>
-          </article>
-          <article class="service">
-            <div class="service-info">
-              <p>
-                  <label for="">Nombre:</label><span></span>
-                </p>
-                <p>
-                  <label for="">Area Especialidad:</label><span></span>
-                </p>
-              <p>
-                  <label for="">Años experiencia en LSM:</label><span></span>
-              </p>
-                <p>
-                  <label for="">Correo electronico:</label><span></span>
-                </p>
-              <p>
-                  <label for="">Telefono:</label><span></span>
-              </p>
-                <p>
-                  <label for="">Valoracion </label><span></span>
-                </p>
-                <a href="#">Calificar Interprete</a>
+require_once 'views/layout/footer.php';
 
-            </div>
-            <div class="video-interprete">
-              <video src="assets/video/hola-man.mp4" id="video-interprete" controls muted loop></video>
-            </div>
-          </article>
-      </section>
-      <!--Fin seccion central -->
-    </div>
-    <!-- Fin Contenido Central -->
-
-    <!-- Pie de pagina -->
-    <footer id="footer">
-      <p>
-        &copy
-        <?=date('Y')?>
-      </p>
-    </footer>
-    <!-- Fin Pie de pagina -->
-  </div>
-
-  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-    crossorigin="anonymous"></script>
-</body>
-
-</html>
+?>
