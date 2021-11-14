@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
     integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
   <!-- estilos generales -->
-  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="<?=base_url?>assets/css/styles.css" />
    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -26,7 +26,7 @@
   <div id="container">
     <header id="header">
       <div id="logo">
-        <img src="assets/img/Hola_LSM.png" alt="logotipo" />
+        <img src="<?=base_url?>assets/img/Hola_LSM.png" alt="logotipo" />
         <h1 id="encabezado">servicios interpretes LSM</h1>
       </div>
       <!-- Menu -->
